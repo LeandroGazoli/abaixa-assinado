@@ -2,7 +2,9 @@ window.addEventListener("load", () => countTotalUsers());
 
 document.querySelector("button#btn-submit").addEventListener("click", () => handleSubmit());
 const countTotalUsers = async () => {
-  const response = await axios.get('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/')
+  const response = await axios.get('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/', {
+    mode: 'no-cors'
+  })
 
   // const response = await axios.get(
   //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/index.php"
