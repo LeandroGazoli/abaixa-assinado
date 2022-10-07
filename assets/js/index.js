@@ -30,6 +30,10 @@ const handleSubmit = async () => {
     return;
   }
 
+// const btn = document.getElementById('btn-submit');
+
+// btn.disabled
+
   // event.target.disabled = true
 
   Swal.fire({
