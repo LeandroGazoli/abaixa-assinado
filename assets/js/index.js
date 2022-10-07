@@ -31,8 +31,6 @@ const handleSubmit = async () => {
 
   btn.disabled = true;
 
-  // event.target.disabled = true
-
   Swal.fire({
     title: "Salvando seu cadastro aguarde",
     icon: "info",
@@ -42,6 +40,7 @@ const handleSubmit = async () => {
     showConfirmButton: false,
     allowOutsideClick: false,
   });
+
 
   const formData = new FormData(form);
 

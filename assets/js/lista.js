@@ -13,9 +13,9 @@ const getAllCadastros = async () => {
     table.innerHTML =
       '<td colspan="3" class="text-center bg-light">Nenhum registro encontrado</td>';
   } else {
-    let data = response?.data.map((e) => {
+    let data = response?.data.map((e, index) => {
       return `<tr>
-      <th scope="row">${e.id}</th>
+      <th scope="row">${index +1}</th>
       <td>${e.nome}</td>
       <td>${e.numero_cadastro}</td>
       </tr>`;
