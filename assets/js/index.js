@@ -2,19 +2,8 @@ window.addEventListener("load", () => countTotalUsers());
 
 document.querySelector("button#btn-submit").addEventListener("click", () => handleSubmit());
 const countTotalUsers = async () => {
-  // await fetch("https://app.empresasmaggi.com.br/abaixo-assinado/", {
-  //   headers: {
-  //     "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-  //   },
-  //   mode: 'cors'
-  // });
 
-  // const response = await axios.get("https://app.empresasmaggi.com.br/abaixo-assinado/", {
-  //   mode: "no-cors",
-  //   crossDomain: true,
-  // });
-
-  const response = await axios.default.get("https://source.empresasmaggi.com.br/api/cadastros");
+  const response = await axios.get("https://source.empresasmaggi.com.br/api/cadastros");
 
   let total = document.querySelector("#total");
 
@@ -33,11 +22,15 @@ const handleSubmit = async () => {
   const form = document.querySelector("#formularioCadastros");
   form.classList.add("was-validated");
 
+  
+
   if (!form.checkValidity()) {
     event.preventDefault();
     event.stopPropagation();
     return;
   }
+
+  event.target.disabled = true
 
   Swal.fire({
     title: "Salvando seu cadastro aguarde",
@@ -51,26 +44,23 @@ const handleSubmit = async () => {
 
   const formData = new FormData(form);
 
-  const response = await axios.default.post("https://source.empresasmaggi.com.br/api/cadastros", formData);
-
-  // const response = await axios.post(
-  //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
-  //   formData
-  // );
-
-  console.log(response);
+  const response = await axios.post("https://source.empresasmaggi.com.br/api/cadastros", formData);
 
   if (response?.status === 200) {
+    event.target.disabled = false
     Swal.fire({
       title: "Cadastro realizado com sucesso",
       icon: "success",
       showConfirmButton: true,
     });
+    
   } else {
     Swal.fire({
       text: "No momento não foi possível fazer o cadastro tente novamete em alguns minutos.",
       icon: 'error',
       showConfirmButton: true
     })
+
+    event.target.disabled = false
   }
 };
