@@ -41,7 +41,17 @@ const handleSubmit = async () => {
     allowOutsideClick: false,
   });
 
-
+  const verify = await axios.get(
+    "https://source.empresasmaggi.com.br/api/cadastros/" + document.querySelector("#name").value
+  );
+  console.log(verify);
+  if (verify?.data.length > 0) {
+    Swal.fire({
+      title: "Usuário já cadastrado.",
+      icon: "error",
+      showConfirmButton: true,
+    });
+  }
   const formData = new FormData(form);
 
   const response = await axios.post("https://source.empresasmaggi.com.br/api/cadastros", formData);
