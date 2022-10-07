@@ -18,7 +18,7 @@
     ></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       console.log(axios)
     </script>
@@ -84,9 +84,9 @@
               </div>
               <div class="mb-3">
                 <label for="numero_cadastro" class="form-label">Numero de cadastro junto a ABCCMM</label>
-                <input type="text" name="numero_cadastro" id="numero_cadastro" class="form-control">
+                <input type="text" required name="numero_cadastro" id="numero_cadastro" class="form-control">
               </div>
-              <button class="btn btn-danger w-100">Assinar esse abaixo-assinado</button>
+              <button id="btn-submit" class="btn btn-danger w-100">Assinar esse abaixo-assinado</button>
             </form>
           </div>
         </div>
