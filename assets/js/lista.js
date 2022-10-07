@@ -5,7 +5,7 @@ const getAllCadastros = async () => {
   // );
 
   const response = await axios.get(
-    "https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/index.php"
+    "https://source.empresasmaggi.com.br/api/cadastros"
   );
 
   const table = document.querySelector("tbody");

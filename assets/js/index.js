@@ -2,24 +2,19 @@ window.addEventListener("load", () => countTotalUsers());
 
 document.querySelector("button#btn-submit").addEventListener("click", () => handleSubmit());
 const countTotalUsers = async () => {
-  const response = await axios.get(
-    "https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/",
-    {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      mode: 'no-cors',
-      withCredentials: true,
-      credentials: 'same-origin',
-    }
-  );
+  // await fetch("https://app.empresasmaggi.com.br/abaixo-assinado/", {
+  //   headers: {
+  //     "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+  //   },
+  //   mode: 'cors'
+  // });
 
-  // const response = await axios.get(
-  //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/index.php"
-  // );
+  // const response = await axios.get("https://app.empresasmaggi.com.br/abaixo-assinado/", {
+  //   mode: "no-cors",
+  //   crossDomain: true,
+  // });
+
+  const response = await axios.get("https://source.empresasmaggi.com.br/api/cadastros");
 
   let total = document.querySelector("#total");
 
@@ -56,23 +51,14 @@ const handleSubmit = async () => {
 
   const formData = new FormData(form);
 
-  const response = axios.post(
-    "https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
-    formData,
-    {
-      headers: {                  
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Authorization", 
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
-        "Content-Type": "application/json;charset=UTF-8"                   
-    },
-    }
-  );
+  const response = await axios.post("https://source.empresasmaggi.com.br/api/cadastros", formData);
 
   // const response = await axios.post(
   //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
   //   formData
   // );
+
+  console.log(response);
 
   if (response?.status === 200) {
     Swal.fire({
