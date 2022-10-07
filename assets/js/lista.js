@@ -10,7 +10,7 @@ const getAllCadastros = async () => {
 
   const table = document.querySelector("tbody");
 
-  if (response?.data.length === 0) {
+  if (response?.data.length < 1) {
     table.innerHTML =
       '<td colspan="3" class="text-center bg-light">Nenhum registro encontrado</td>';
   }
