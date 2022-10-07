@@ -14,7 +14,7 @@ const countTotalUsers = async () => {
   //   crossDomain: true,
   // });
 
-  const response = await axios.get("https://source.empresasmaggi.com.br/api/cadastros");
+  const response = await axios.default.get("https://source.empresasmaggi.com.br/api/cadastros");
 
   let total = document.querySelector("#total");
 
@@ -51,7 +51,7 @@ const handleSubmit = async () => {
 
   const formData = new FormData(form);
 
-  const response = await axios.post("https://source.empresasmaggi.com.br/api/cadastros", formData);
+  const response = await axios.default.post("https://source.empresasmaggi.com.br/api/cadastros", formData);
 
   // const response = await axios.post(
   //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
@@ -66,5 +66,11 @@ const handleSubmit = async () => {
       icon: "success",
       showConfirmButton: true,
     });
+  } else {
+    Swal.fire({
+      text: "No momento não foi possível fazer o cadastro tente novamete em alguns minutos.",
+      icon: 'error',
+      showConfirmButton: true
+    })
   }
 };
