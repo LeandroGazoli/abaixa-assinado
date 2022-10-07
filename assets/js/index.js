@@ -3,20 +3,21 @@ window.addEventListener("load", () => countTotalUsers());
 document.querySelector("button#btn-submit").addEventListener("click", () => handleSubmit());
 
 const countTotalUsers = async () => {
-  // const response = await axios.get('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/')
+  const response = await axios.get('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/index.php')
 
-  const response = await axios.get(
-    "http://painel/dashboard/parts/funcoes/abaixo-assinado/index.php"
-  );
+  // const response = await axios.get(
+  //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/index.php"
+  // );
 
-  if (response?.data.length === 0) {
-    console.log("nenhum cadastro");
-  }
+  let total = document.querySelector("#total");
+
   if (response?.data.length === 1) {
-    console.log("1 pessoa cadastrou");
+    let html = `1 pessoa já assinou.`;
+    total.innerHTML = html;
   }
   if (response?.data.length > 1) {
-    console.log(`${response?.data.length} pessoas cadastraram`);
+    let html = `${response?.data.length} pessoas já assinaram.`;
+    total.innerHTML = html;
   }
 };
 
@@ -35,7 +36,7 @@ const handleSubmit = async () => {
     title: "Salvando seu cadastro aguarde",
     icon: "info",
     didOpen: () => {
-      Swal.showLoading()
+      Swal.showLoading();
     },
     showConfirmButton: false,
     allowOutsideClick: false,
@@ -43,19 +44,21 @@ const handleSubmit = async () => {
 
   const formData = new FormData(form);
 
-  // const response = axios.post('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php')
-
-  const response = await axios.post(
-    "http://painel/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
+  const response = axios.post(
+    "https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
     formData
   );
 
-    if(response?.status === 200){
-      Swal.fire({
-        title: 'Cadastro realizado com sucesso',
-        icon: 'success',
-        showConfirmButton: true
-      })
-    }
+  // const response = await axios.post(
+  //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
+  //   formData
+  // );
 
+  if (response?.status === 200) {
+    Swal.fire({
+      title: "Cadastro realizado com sucesso",
+      icon: "success",
+      showConfirmButton: true,
+    });
+  }
 };
