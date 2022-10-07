@@ -2,7 +2,6 @@ window.addEventListener("load", () => countTotalUsers());
 
 document.querySelector("button#btn-submit").addEventListener("click", () => handleSubmit());
 const countTotalUsers = async () => {
-
   const response = await axios.get("https://source.empresasmaggi.com.br/api/cadastros");
 
   let total = document.querySelector("#total");
@@ -22,17 +21,15 @@ const handleSubmit = async () => {
   const form = document.querySelector("#formularioCadastros");
   form.classList.add("was-validated");
 
-  
-
   if (!form.checkValidity()) {
     event.preventDefault();
     event.stopPropagation();
     return;
   }
 
-// const btn = document.getElementById('btn-submit');
+  const btn = document.getElementById("btn-submit");
 
-// btn.disabled
+  btn.disabled = true;
 
   // event.target.disabled = true
 
@@ -51,20 +48,22 @@ const handleSubmit = async () => {
   const response = await axios.post("https://source.empresasmaggi.com.br/api/cadastros", formData);
 
   if (response?.status === 200) {
-    event.target.disabled = false
+    event.target.disabled = false;
     Swal.fire({
       title: "Cadastro realizado com sucesso",
       icon: "success",
       showConfirmButton: true,
     });
-    
+    btn.disabled = false;
   } else {
     Swal.fire({
       text: "No momento não foi possível fazer o cadastro tente novamete em alguns minutos.",
-      icon: 'error',
-      showConfirmButton: true
-    })
+      icon: "error",
+      showConfirmButton: true,
+    });
 
-    event.target.disabled = false
+    btn.disabled = false;
   }
+
+  btn.disabled = false;
 };
