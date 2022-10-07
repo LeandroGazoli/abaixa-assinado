@@ -2,9 +2,17 @@ window.addEventListener("load", () => countTotalUsers());
 
 document.querySelector("button#btn-submit").addEventListener("click", () => handleSubmit());
 const countTotalUsers = async () => {
-  const response = await axios.get('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/', {
-    mode: 'no-cors'
-  })
+  const response = await axios.get(
+    "https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    }
+  );
 
   // const response = await axios.get(
   //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/index.php"
@@ -47,7 +55,15 @@ const handleSubmit = async () => {
 
   const response = axios.post(
     "https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/cadastrar.php",
-    formData
+    formData,
+    {
+      headers: {                  
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Authorization", 
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
+        "Content-Type": "application/json;charset=UTF-8"                   
+    },
+    }
   );
 
   // const response = await axios.post(
