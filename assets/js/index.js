@@ -30,7 +30,7 @@ const handleSubmit = async () => {
     return;
   }
 
-  event.target.disabled = true
+  // event.target.disabled = true
 
   Swal.fire({
     title: "Salvando seu cadastro aguarde",
