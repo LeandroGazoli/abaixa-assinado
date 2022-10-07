@@ -1,0 +1,99 @@
+body {
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+}
+
+nav li a.active {
+  font-weight: bold;
+  border-bottom: 1px solid;
+  padding-bottom: 0;
+}
+
+#titulo {
+  margin-bottom: 60px;
+  padding-top: 40px;
+}
+
+#titulo h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+  font-weight: 700;
+  padding-top: 0px;
+  text-align: left;
+  word-break: break-word;
+}
+
+.descricao {
+  font-size: 16px;
+  line-height: 24px;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+.criador {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.criador > .texto-criador {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  line-height: 22px;
+  min-height: 44px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.criador > .texto-criador > span {
+  line-height: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+  color: #666666;
+}
+
+.criador .destaque {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  cursor: pointer;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #157db9;
+}
+
+
+.formulario > h2 {
+  box-sizing: border-box;
+  margin: 32px 0px 16px;
+  min-width: 0px;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+}
