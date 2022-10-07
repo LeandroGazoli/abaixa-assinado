@@ -51,6 +51,7 @@ const handleSubmit = async () => {
       icon: "error",
       showConfirmButton: true,
     });
+    btn.disabled = false;
     return;
   }
   const formData = new FormData(form);
