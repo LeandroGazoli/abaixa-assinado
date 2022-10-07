@@ -1,5 +1,4 @@
 window.addEventListener("load", () => getAllCadastros());
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 const getAllCadastros = async () => {
   // const response = await axios.get(
   //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/index.php"

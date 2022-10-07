@@ -1,9 +1,8 @@
 window.addEventListener("load", () => countTotalUsers());
 
 document.querySelector("button#btn-submit").addEventListener("click", () => handleSubmit());
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 const countTotalUsers = async () => {
-  const response = await axios.get('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/index.php')
+  const response = await axios.get('https://app.empresasmaggi.com.br/dashboard/parts/funcoes/abaixo-assinado/')
 
   // const response = await axios.get(
   //   "http://painel/dashboard/parts/funcoes/abaixo-assinado/index.php"
