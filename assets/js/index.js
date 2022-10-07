@@ -11,6 +11,9 @@ const countTotalUsers = async () => {
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
         "Content-Type": "application/json;charset=UTF-8",
       },
+      mode: 'no-cors',
+      withCredentials: true,
+      credentials: 'same-origin',
     }
   );
 
